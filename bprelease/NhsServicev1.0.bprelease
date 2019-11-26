@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
+    <bpr:name>NhsServicev1.0</bpr:name>
+    <bpr:release-notes>Initial release of the NHS Service</bpr:release-notes>
+    <bpr:created>2019-11-22 19:53:47Z</bpr:created>
+    <bpr:package-id>29</bpr:package-id>
+    <bpr:package-name>NHS Service</bpr:package-name>
+    <bpr:user-created-by>admin</bpr:user-created-by>
+    <bpr:contents count="1">
+        <webapiservice id="c8d007df-0e7b-4bc2-8bc1-56d2ce9be606" name="NHS Service" enabled="true" xmlns="http://www.blueprism.co.uk/product/webapiservice">
+            <configuration baseurl="https://api.nhs.uk" xmlns="">
+                <actions>
+                    <action id="95" name="Get All Conditions" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a paginated list of medical conditions]]></description>
+                        <request httpmethod="GET" urlpath="/conditions?page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number to retrieve]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="Conditions" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="96" name="Get All Conditions by Topic" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a paginated list of medical conditions matching a topic name]]></description>
+                        <request httpmethod="GET" urlpath="/conditions/?topic=[topic]&amp;page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number of results to return]]></description>
+                            </actionparameter>
+                            <actionparameter name="topic" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The topic of medical conditions to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="Conditions" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="97" name="Get Condition" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a single medical condition]]></description>
+                        <request httpmethod="GET" urlpath="/conditions/[condition]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="condition" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the condition to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="Condition" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="98" name="Get Condition Subpage" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a subpage of a specific medical condition]]></description>
+                        <request httpmethod="GET" urlpath="/conditions/[condition]/[subpage]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="condition" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the medical condition to return]]></description>
+                            </actionparameter>
+                            <actionparameter name="subpage" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the subpage to return for the specified medical condition]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="ConditionSubpage" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="99" name="Get All Medicines" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Return a paginated list of all medicines]]></description>
+                        <request httpmethod="GET" urlpath="/medicines?page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number of results to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="Medicines" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="100" name="Get Medicine" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Return a specific medicine]]></description>
+                        <request httpmethod="GET" urlpath="/medicines/[medicine]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="medicine" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the medicine to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="Medicine" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="101" name="Get Medicine Subpage" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Return a subpage of a specific medicine]]></description>
+                        <request httpmethod="GET" urlpath="/medicines/[medicine]/[subpage]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="medicine" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the medicine to return]]></description>
+                            </actionparameter>
+                            <actionparameter name="subpage" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The name of the subpage for the medicine]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="MedicineSubpage" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="102" name="Get All News Articles" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a paginated list of all news articles]]></description>
+                        <request httpmethod="GET" urlpath="/news?page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number of results to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="News" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="103" name="Get News Articles By Topic" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a paginated list of news articles pertaining to a single topic]]></description>
+                        <request httpmethod="GET" urlpath="/news/[topic]?page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number of results to return]]></description>
+                            </actionparameter>
+                            <actionparameter name="topic" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The topic of news articles to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="News" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="104" name="Get News Article" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a specific news article within a given topic]]></description>
+                        <request httpmethod="GET" urlpath="/news/[topic]/[pageUrl]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="topic" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The topic of the news article]]></description>
+                            </actionparameter>
+                            <actionparameter name="pageUrl" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The title of the news article to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="NewsArticle" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="105" name="Get All Live Well Topics" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a paginated list of all Live Well topics]]></description>
+                        <request httpmethod="GET" urlpath="/live-well?page=[page]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="page" expose="true" datatype="16">
+                                <initialvalue><![CDATA[1]]></initialvalue>
+                                <description><![CDATA[The page number of results to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="LiveWellTopics" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="106" name="Get Live Well Topic" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns information about a single Live Well topic]]></description>
+                        <request httpmethod="GET" urlpath="/live-well/[topic]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="topic" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The Live Well topic to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="LiveWellTopic" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                    <action id="107" name="Get Live Well Topic Subpage" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[Returns a subpage of a specific Live Well topic]]></description>
+                        <request httpmethod="GET" urlpath="/live-well/[topic]/[subPage]">
+                            <headers />
+                            <bodycontent type="0"></bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="topic" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The Live Well topic to return]]></description>
+                            </actionparameter>
+                            <actionparameter name="subPage" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[The specific subpage to return]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="LiveWellTopicSubPage" path="$" datatype="collection"></customoutputparameter>
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                </actions>
+                <commonparameters>
+                    <actionparameter name="subscription-key" expose="true" datatype="32">
+                        <initialvalue><![CDATA[aCpGKl8qTyp6KlgqQypZKkcqBCppKkUqWCpPKgQqeSpPKkkqXypYKk8qBCp5KkMqRypaKkYqTyplKkgqTCpfKlkqSSpLKl4qRSpYKg==:]]></initialvalue>
+                        <description><![CDATA[Subscription key provided by NHS, required to authenticate all API requests.]]></description>
+                    </actionparameter>
+                </commonparameters>
+                <commonheaders>
+                    <httpheader name="subscription-key" value="[subscription-key]" />
+                </commonheaders>
+                <commonauthentications>
+                    <authentication type="0" />
+                </commonauthentications>
+                <commoncode>
+                    <codeproperties code="" language="visualbasic">
+                        <namespaces>
+                            <namespace>System</namespace>
+                            <namespace>System.Drawing</namespace>
+                            <namespace>System.Data</namespace>
+                        </namespaces>
+                        <references>
+                            <reference>System.dll</reference>
+                            <reference>System.Data.dll</reference>
+                            <reference>System.Xml.dll</reference>
+                            <reference>System.Drawing.dll</reference>
+                        </references>
+                    </codeproperties>
+                </commoncode>
+                <configurationsettings>
+                    <configurationsettings requesttimeout="10" authserverrequesttimeout="10" />
+                </configurationsettings>
+            </configuration>
+        </webapiservice>
+    </bpr:contents>
+</bpr:release>
